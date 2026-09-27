@@ -27,22 +27,36 @@ import {
 import DrinkVisual from "./components/DrinkVisual";
 import SectionTitle from "./components/SectionTitle";
 
+/*
+  ẢNH STANDARD + RESERVE BAR
+*/
 import standardStore from "./images/1790512256366_204560887683120085_204560887683120085_231aee3bfc3aef20e05ec647d9c89046.jpg";
+
 import reserveBar from "./images/1790512256386_204560887683120085_204560887683120085_08e6362a90f3251a9a0637c2e601da13.jpg";
-import interiorLarge from "./images/1790512256386_204560887683120085_204560887683120085_08e6362a90f3251a9a0637c2e601da13.jpg";
-import storefront from "./images/1790512256391_204560887683120085_204560887683120085_749afbf2f2a171ae502b4b633172ebb2.jpg";
-import productShot from "./images/1790512256366_204560887683120085_204560887683120085_231aee3bfc3aef20e05ec647d9c89046.jpg";
+
+/*
+  ẢNH PHẦN 03 / 05
+*/
+import productShot from "./images/sanpham.jpg";
 import marketingShot from "./images/marketing.jpg";
 import operationShot from "./images/vanhanh.jpg";
 import experienceShot from "./images/trainghiem.jpg";
 
+/* =========================================================
+   MENU
+========================================================= */
+
 const sections = [
   ["s1", "Bối cảnh"],
   ["s2", "Thích nghi"],
-  ["s3", "Vận hành"],
+  ["s3", "Tổ chức"],
   ["s4", "Cân bằng"],
-  ["s5", "Lan tỏa"],
+  ["s5", "Điểm cân bằng"],
 ];
+
+/* =========================================================
+   ANIMATION
+========================================================= */
 
 const reveal = {
   hidden: {
@@ -62,8 +76,13 @@ const reveal = {
   }),
 };
 
+/* =========================================================
+   APP
+========================================================= */
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+
   const [active, setActive] = useState("s1");
 
   const { scrollYProgress } = useScroll();
@@ -73,6 +92,10 @@ function App() {
     damping: 24,
     mass: 0.2,
   });
+
+  /* =======================================================
+     ACTIVE SECTION
+  ======================================================= */
 
   useEffect(() => {
     const io = new IntersectionObserver(
@@ -100,6 +123,10 @@ function App() {
     return () => io.disconnect();
   }, []);
 
+  /* =======================================================
+     SCROLL TO SECTION
+  ======================================================= */
+
   const go = (id) => {
     setMenuOpen(false);
 
@@ -110,9 +137,9 @@ function App() {
 
   return (
     <>
-      {/* ==================================================
-          PROGRESS
-      ================================================== */}
+      {/* ===================================================
+          PROGRESS BAR
+      =================================================== */}
 
       <motion.div
         className="page-progress"
@@ -121,9 +148,9 @@ function App() {
         }}
       />
 
-      {/* ==================================================
+      {/* ===================================================
           NAVBAR
-      ================================================== */}
+      =================================================== */}
 
       <header className="topbar">
         <button
@@ -164,9 +191,9 @@ function App() {
         </button>
       </header>
 
-      {/* ==================================================
+      {/* ===================================================
           MOBILE MENU
-      ================================================== */}
+      =================================================== */}
 
       {menuOpen && (
         <motion.div
@@ -193,13 +220,15 @@ function App() {
       )}
 
       <main>
-        {/* ==================================================
+        {/* =================================================
             HERO
-        ================================================== */}
+        ================================================= */}
 
         <section className="hero" id="top">
           <div className="hero-noise" />
+
           <div className="hero-glow glow-a" />
+
           <div className="hero-glow glow-b" />
 
           <div className="hero-shell">
@@ -240,7 +269,9 @@ function App() {
 
                 <div className="hero-meta">
                   <span>05 chương</span>
+
                   <span>Mobile-first</span>
+
                   <span>Interactive</span>
                 </div>
               </motion.div>
@@ -256,9 +287,9 @@ function App() {
           </div>
         </section>
 
-        {/* ==================================================
-            01
-        ================================================== */}
+        {/* =================================================
+            01 / 05
+        ================================================= */}
 
         <section className="section cream" id="s1">
           <div className="container">
@@ -280,6 +311,8 @@ function App() {
               thuộc với nhóm khách hàng trẻ.
             </motion.p>
 
+            {/* STORY FLOW */}
+
             <div className="story-flow">
               {[
                 [Globe2, "Thị trường", "Cạnh tranh cao"],
@@ -291,7 +324,7 @@ function App() {
                 [CircleAlert, "Áp lực", "Không thể đứng yên"],
 
                 [Coffee, "Phản ứng", "Đưa trà sữa vào menu"],
-              ].map(([Icon, title, desc], index) => (
+              ].map(([Icon, title, description], index) => (
                 <motion.div
                   className="flow-card"
                   key={title}
@@ -309,12 +342,14 @@ function App() {
 
                   <strong>{title}</strong>
 
-                  <span>{desc}</span>
+                  <span>{description}</span>
 
                   {index < 4 && <ArrowRight className="flow-arrow" />}
                 </motion.div>
               ))}
             </div>
+
+            {/* QUOTE */}
 
             <motion.blockquote
               initial={{
@@ -336,6 +371,8 @@ function App() {
               áp lực của môi trường và nhu cầu thích nghi.”
             </motion.blockquote>
 
+            {/* LOCALIZATION */}
+
             <div className="split-note">
               <div>
                 <span className="mini-label">LOCALIZATION</span>
@@ -352,9 +389,9 @@ function App() {
           </div>
         </section>
 
-        {/* ==================================================
-            02
-        ================================================== */}
+        {/* =================================================
+            02 / 05
+        ================================================= */}
 
         <section className="section paper" id="s2">
           <div className="container">
@@ -367,7 +404,9 @@ function App() {
               trình liên tục chứ không phải một quyết định diễn ra một lần.
             </p>
 
-            {/* TIMELINE */}
+            {/* =================================================
+                TIMELINE
+            ================================================= */}
 
             <div className="timeline-grid">
               {[
@@ -398,7 +437,7 @@ function App() {
                   "Trà sữa",
                   "Một bước tiếp theo trong chuỗi thích nghi, không phải đích đến.",
                 ],
-              ].map(([tag, Icon, title, desc], index) => (
+              ].map(([tag, Icon, title, description], index) => (
                 <motion.article
                   className="timeline-card"
                   key={tag}
@@ -420,14 +459,14 @@ function App() {
 
                   <h3>{title}</h3>
 
-                  <p>{desc}</p>
+                  <p>{description}</p>
                 </motion.article>
               ))}
             </div>
 
-            {/* ==================================================
-                STANDARD → RESERVE
-            ================================================== */}
+            {/* =================================================
+                MODEL EVOLUTION
+            ================================================= */}
 
             <motion.div
               className="model-evolution"
@@ -465,9 +504,13 @@ function App() {
                 </p>
               </div>
 
-              {/* STANDARD */}
+              {/* ===============================================
+                  STANDARD → RESERVE
+              =============================================== */}
 
               <div className="model-comparison">
+                {/* STANDARD */}
+
                 <motion.figure
                   className="model-card"
                   initial={{
@@ -557,7 +600,9 @@ function App() {
                 </motion.figure>
               </div>
 
-              {/* TRANSFORMATION */}
+              {/* ===============================================
+                  KẾT QUẢ CHUYỂN ĐỔI
+              =============================================== */}
 
               <div className="model-result">
                 <div className="model-result-intro">
@@ -573,6 +618,8 @@ function App() {
                 </div>
 
                 <div className="model-result-grid">
+                  {/* 01 */}
+
                   <motion.div
                     initial="hidden"
                     whileInView="show"
@@ -594,6 +641,8 @@ function App() {
                     </p>
                   </motion.div>
 
+                  {/* 02 */}
+
                   <motion.div
                     initial="hidden"
                     whileInView="show"
@@ -614,6 +663,8 @@ function App() {
                       quan trọng của giá trị thương hiệu.
                     </p>
                   </motion.div>
+
+                  {/* 03 */}
 
                   <motion.div
                     initial="hidden"
@@ -638,6 +689,8 @@ function App() {
                 </div>
               </div>
 
+              {/* PATH */}
+
               <div className="model-path">
                 <span>STANDARD</span>
 
@@ -653,9 +706,10 @@ function App() {
           </div>
         </section>
 
-        {/* ==================================================
-            03
-        ================================================== */}
+        {/* =================================================
+            03 / 05
+            SẢN PHẨM → MARKETING → VẬN HÀNH → TRẢI NGHIỆM
+        ================================================= */}
 
         <section className="section dark" id="s3">
           <div className="container">
@@ -670,212 +724,11 @@ function App() {
               định, nhiều bộ phận phía sau phải cùng thay đổi.
             </p>
 
-            <div className="impact-grid">
-              {[
-                [
-                  PackageCheck,
-                  "PRODUCT",
-                  "Sản phẩm",
-                  "Công thức, nền trà, nguyên liệu và hương vị.",
-                ],
-
-                [
-                  Megaphone,
-                  "BRAND",
-                  "Marketing",
-                  "Khách hàng mục tiêu, thông điệp và vị trí sản phẩm.",
-                ],
-
-                [
-                  BarChart3,
-                  "OPERATION",
-                  "Vận hành",
-                  "Đào tạo Barista, quy trình pha chế và chuỗi cung ứng.",
-                ],
-
-                [
-                  Sparkles,
-                  "EXPERIENCE",
-                  "Trải nghiệm",
-                  "Phù hợp thị trường nhưng vẫn giữ cá tính thương hiệu.",
-                ],
-              ].map(([Icon, tag, title, desc], index) => (
-                <motion.article
-                  className="impact-card"
-                  key={tag}
-                  whileHover={{
-                    y: -8,
-                  }}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{
-                    once: true,
-                  }}
-                  custom={index}
-                  variants={reveal}
-                >
-                  <div className="impact-icon">
-                    <Icon />
-                  </div>
-
-                  <span>
-                    {String(index + 1).padStart(2, "0")} · {tag}
-                  </span>
-
-                  <h3>{title}</h3>
-
-                  <p>{desc}</p>
-                </motion.article>
-              ))}
-            </div>
-
-            <motion.div
-              className="statement"
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-            >
-              <div className="statement-badge">
-                <Coffee />
-              </div>
-
-              <h3>
-                Một thay đổi ở sản phẩm <ArrowRight /> kéo theo thay đổi ở nhiều
-                hoạt động khác.
-              </h3>
-
-              <p>Đó là lý do thay đổi trong tổ chức mang tính toàn diện.</p>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ==================================================
-            04
-        ================================================== */}
-
-        <section className="section cream" id="s4">
-          <div className="container">
-            <SectionTitle number="04 / 05" eyebrow="Trade-off">
-              Thay đổi mở ra cơ hội — nhưng cũng tạo ra bài toán mới.
-            </SectionTitle>
-
-            <div className="balance-grid">
-              <motion.div
-                className="balance-card opportunity"
-                initial={{
-                  opacity: 0,
-                  x: -24,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-              >
-                <div className="balance-head">
-                  <div>
-                    <span>CƠ HỘI</span>
-
-                    <h3>Mở rộng không gian tăng trưởng</h3>
-                  </div>
-
-                  <TrendingUp />
-                </div>
-
-                {[
-                  "Mở rộng danh mục sản phẩm",
-                  "Tiếp cận thêm khách hàng trẻ",
-                  "Tăng mức độ bản địa hóa",
-                  "Thích nghi với xu hướng đồ uống",
-                ].map((item) => (
-                  <div className="balance-row" key={item}>
-                    <Check size={17} />
-
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </motion.div>
-
-              <div className="versus">
-                <span>VS</span>
-
-                <div />
-              </div>
-
-              <motion.div
-                className="balance-card challenge"
-                initial={{
-                  opacity: 0,
-                  x: 24,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-              >
-                <div className="balance-head">
-                  <div>
-                    <span>THÁCH THỨC</span>
-
-                    <h3>Giữ chuẩn khi thay đổi nhanh</h3>
-                  </div>
-
-                  <CircleAlert />
-                </div>
-
-                {[
-                  "Cạnh tranh với thương hiệu trà sữa",
-                  "Giá và chi phí nguyên liệu",
-                  "Chất lượng và vận hành",
-                  "Nguy cơ ảnh hưởng bản sắc thương hiệu",
-                ].map((item) => (
-                  <div className="balance-row" key={item}>
-                    <Minus size={17} />
-
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* ==================================================
-            05
-        ================================================== */}
-
-        <section className="section paper final-section" id="s5">
-          <div className="container">
-            <SectionTitle number="05 / 05" eyebrow="Lan tỏa">
-              Một thay đổi nhỏ lan qua toàn bộ tổ chức.
-            </SectionTitle>
-
-            <p className="lead">
-              Khi Starbucks đưa một dòng đồ uống mới vào thị trường, sự thay đổi
-              không dừng lại ở chiếc ly. Nó tiếp tục tác động đến marketing, vận
-              hành và cuối cùng là trải nghiệm thương hiệu.
-            </p>
-
-            {/* ==================================================
-                PRODUCT → MARKETING → OPERATION → EXPERIENCE
-            ================================================== */}
+            {/* =================================================
+                01 PRODUCT
+            ================================================= */}
 
             <div className="change-sequence">
-              {/* PRODUCT */}
-
               <motion.article
                 className="change-card"
                 initial="hidden"
@@ -887,7 +740,7 @@ function App() {
                 variants={reveal}
               >
                 <div className="change-image">
-                  <img src={productShot} alt="Sản phẩm trà Starbucks" />
+                  <img src={productShot} alt="Sản phẩm trà sữa Starbucks" />
 
                   <span>01</span>
                 </div>
@@ -902,8 +755,8 @@ function App() {
                   <h3>Sản phẩm</h3>
 
                   <p>
-                    Starbucks đưa trà sữa và các dòng trà mới vào danh mục để
-                    phản ứng với xu hướng tiêu dùng tại thị trường Việt Nam.
+                    Công thức, nền trà, nguyên liệu và hương vị được điều chỉnh
+                    để tạo ra dòng sản phẩm phù hợp hơn với thị trường.
                   </p>
                 </div>
               </motion.article>
@@ -912,7 +765,9 @@ function App() {
                 <ArrowRight />
               </div>
 
-              {/* MARKETING */}
+              {/* ===============================================
+                  02 MARKETING
+              =============================================== */}
 
               <motion.article
                 className="change-card"
@@ -943,8 +798,8 @@ function App() {
                   <h3>Marketing</h3>
 
                   <p>
-                    Sản phẩm mới cần một cách truyền thông mới: trẻ hơn, gần với
-                    xu hướng và dễ tiếp cận nhóm khách hàng trẻ.
+                    Khách hàng mục tiêu, thông điệp truyền thông và vị trí của
+                    sản phẩm trong hình ảnh thương hiệu cũng phải thay đổi.
                   </p>
                 </div>
               </motion.article>
@@ -953,7 +808,9 @@ function App() {
                 <ArrowRight />
               </div>
 
-              {/* OPERATION */}
+              {/* ===============================================
+                  03 OPERATION
+              =============================================== */}
 
               <motion.article
                 className="change-card"
@@ -984,8 +841,8 @@ function App() {
                   <h3>Vận hành</h3>
 
                   <p>
-                    Barista phải được đào tạo, nguyên liệu phải được chuẩn hóa
-                    và quy trình pha chế cần đảm bảo chất lượng đồng nhất.
+                    Barista phải được đào tạo, nguyên liệu được chuẩn hóa và quy
+                    trình pha chế cần đảm bảo chất lượng đồng nhất.
                   </p>
                 </div>
               </motion.article>
@@ -994,7 +851,9 @@ function App() {
                 <ArrowRight />
               </div>
 
-              {/* EXPERIENCE */}
+              {/* ===============================================
+                  04 EXPERIENCE
+              =============================================== */}
 
               <motion.article
                 className="change-card"
@@ -1007,10 +866,7 @@ function App() {
                 variants={reveal}
               >
                 <div className="change-image landscape">
-                  <img
-                    src={experienceShot}
-                    alt="Không gian Starbucks Reserve Bar"
-                  />
+                  <img src={experienceShot} alt="Trải nghiệm tại Starbucks" />
 
                   <span>04</span>
                 </div>
@@ -1025,17 +881,16 @@ function App() {
                   <h3>Trải nghiệm</h3>
 
                   <p>
-                    Điểm cuối cùng không chỉ là một sản phẩm mới mà là một trải
-                    nghiệm thương hiệu được nâng cấp và phù hợp hơn với thị
-                    trường.
+                    Phù hợp hơn với thị trường nhưng vẫn phải duy trì được phong
+                    cách và bản sắc riêng của Starbucks.
                   </p>
                 </div>
               </motion.article>
             </div>
 
-            {/* ==================================================
-                SUMMARY CHAIN
-            ================================================== */}
+            {/* =================================================
+                SUMMARY
+            ================================================= */}
 
             <motion.div
               className="change-summary"
@@ -1066,32 +921,174 @@ function App() {
               <strong>TRẢI NGHIỆM</strong>
             </motion.div>
 
-            {/* ==================================================
-                BALANCE
-            ================================================== */}
+            {/* =================================================
+                STATEMENT
+            ================================================= */}
 
-            <div className="balance-intro">
-              <span className="mini-label">THE BALANCE</span>
+            <motion.div
+              className="statement"
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+            >
+              <div className="statement-badge">
+                <Coffee />
+              </div>
 
               <h3>
-                Nhưng thay đổi đến đâu
-                <br />
-                là đủ?
+                Một thay đổi ở sản phẩm <ArrowRight /> kéo theo thay đổi ở nhiều
+                hoạt động khác.
               </h3>
 
-              <p>
-                Starbucks cần thích nghi đủ để phù hợp với thị trường nhưng
-                không thay đổi đến mức làm mất đi bản sắc vốn có.
-              </p>
+              <p>Đó là lý do thay đổi trong tổ chức mang tính toàn diện.</p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* =================================================
+            04 / 05
+        ================================================= */}
+
+        <section className="section cream" id="s4">
+          <div className="container">
+            <SectionTitle number="04 / 05" eyebrow="Trade-off">
+              Thay đổi mở ra cơ hội — nhưng cũng tạo ra bài toán mới.
+            </SectionTitle>
+
+            <div className="balance-grid">
+              {/* OPPORTUNITY */}
+
+              <motion.div
+                className="balance-card opportunity"
+                initial={{
+                  opacity: 0,
+                  x: -24,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+              >
+                <div className="balance-head">
+                  <div>
+                    <span>CƠ HỘI</span>
+
+                    <h3>Mở rộng không gian tăng trưởng</h3>
+                  </div>
+
+                  <TrendingUp />
+                </div>
+
+                {[
+                  "Mở rộng danh mục sản phẩm",
+
+                  "Tiếp cận thêm khách hàng trẻ",
+
+                  "Tăng mức độ bản địa hóa",
+
+                  "Thích nghi với xu hướng đồ uống",
+                ].map((item) => (
+                  <div className="balance-row" key={item}>
+                    <Check size={17} />
+
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </motion.div>
+
+              {/* VS */}
+
+              <div className="versus">
+                <span>VS</span>
+
+                <div />
+              </div>
+
+              {/* CHALLENGE */}
+
+              <motion.div
+                className="balance-card challenge"
+                initial={{
+                  opacity: 0,
+                  x: 24,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+              >
+                <div className="balance-head">
+                  <div>
+                    <span>THÁCH THỨC</span>
+
+                    <h3>Giữ chuẩn khi thay đổi nhanh</h3>
+                  </div>
+
+                  <CircleAlert />
+                </div>
+
+                {[
+                  "Cạnh tranh với thương hiệu trà sữa",
+
+                  "Giá và chi phí nguyên liệu",
+
+                  "Chất lượng và vận hành",
+
+                  "Nguy cơ ảnh hưởng bản sắc thương hiệu",
+                ].map((item) => (
+                  <div className="balance-row" key={item}>
+                    <Minus size={17} />
+
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </motion.div>
             </div>
+          </div>
+        </section>
+
+        {/* =================================================
+            05 / 05
+            TRẢ VỀ ĐÚNG THIẾT KẾ BAN ĐẦU
+        ================================================= */}
+
+        <section className="section paper final-section" id="s5">
+          <div className="container">
+            <SectionTitle number="05 / 05" eyebrow="Điểm cân bằng">
+              Bài toán không phải “có thay đổi hay không”.
+            </SectionTitle>
+
+            <p className="lead">
+              Bài toán khó hơn là xác định mức độ thay đổi: đủ để phù hợp với
+              khách hàng Việt Nam, nhưng vẫn giữ được sự khác biệt của
+              Starbucks.
+            </p>
+
+            {/* =================================================
+                BALANCE METER
+            ================================================= */}
 
             <div className="meter-wrap">
               <div className="meter-labels">
-                <span>Thay đổi quá ít</span>
+                <span>Quá ít</span>
 
                 <span>Thích nghi có kiểm soát</span>
 
-                <span>Thay đổi quá nhiều</span>
+                <span>Quá nhiều</span>
               </div>
 
               <div className="meter">
@@ -1119,6 +1116,10 @@ function App() {
                 <span>Có nguy cơ mất bản sắc</span>
               </div>
             </div>
+
+            {/* =================================================
+                CORE QUESTION
+            ================================================= */}
 
             <motion.div
               className="question-card"
@@ -1149,9 +1150,9 @@ function App() {
           </div>
         </section>
 
-        {/* ==================================================
+        {/* =================================================
             CLOSING
-        ================================================== */}
+        ================================================= */}
 
         <section className="closing">
           <div className="closing-orb" />
@@ -1179,9 +1180,9 @@ function App() {
         </section>
       </main>
 
-      {/* ==================================================
+      {/* ===================================================
           FOOTER
-      ================================================== */}
+      =================================================== */}
 
       <footer>
         <div className="container footer-inner">
