@@ -71,9 +71,7 @@ export default function DrinkVisual() {
 
           <linearGradient id="cupShade" x1="0" x2="1">
             <stop offset="0" stopColor="#ffffff" stopOpacity=".88" />
-
             <stop offset=".48" stopColor="#ffffff" stopOpacity=".30" />
-
             <stop offset="1" stopColor="#dbe8df" stopOpacity=".72" />
           </linearGradient>
 
@@ -93,8 +91,19 @@ export default function DrinkVisual() {
         </defs>
 
         <g filter="url(#shadow)">
-          {/* ỐNG HÚT */}
-          <path d="M94 84 L125 24 L141 31 L119 88" fill="#d7c39a" />
+          {/* ỐNG HÚT - sửa lại cho tự nhiên hơn */}
+          <g transform="rotate(18 138 88)">
+            <rect x="129" y="6" width="18" height="120" rx="4" fill="#d9c08e" />
+            <rect
+              x="133"
+              y="10"
+              width="5"
+              height="108"
+              rx="2.5"
+              fill="#f1dfb6"
+              opacity="0.75"
+            />
+          </g>
 
           {/* THÂN LY */}
           <path
@@ -158,16 +167,26 @@ export default function DrinkVisual() {
             strokeLinecap="round"
           />
 
+          {/* VIỀN MIỆNG LY PHÍA TRƯỚC để ống hút trông cắm vào ly */}
+          <path
+            d="M82 122 Q150 109 218 122"
+            fill="none"
+            stroke="#dbe8df"
+            strokeOpacity=".85"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+
           {/* NỀN TRẮNG CHO LOGO */}
           <circle cx="150" cy="220" r="47" fill="#ffffff" />
 
           {/* LOGO STARBUCKS */}
           <image
             href={starbucksLogo}
-            x="103"
-            y="173"
-            width="94"
-            height="94"
+            x="96"
+            y="166"
+            width="108"
+            height="108"
             preserveAspectRatio="xMidYMid slice"
             clipPath="url(#logoClip)"
           />
