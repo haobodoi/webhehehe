@@ -37,7 +37,7 @@ import reserveBar from "./images/1790512256386_204560887683120085_20456088768312
 /*
   ẢNH PHẦN 03 / 05
 */
-import productShot from "./images/sanpham.jpg";
+import productShot from "./images/khachhang.jpg";
 import marketingShot from "./images/marketing.jpg";
 import operationShot from "./images/vanhanh.jpg";
 import experienceShot from "./images/trainghiem.jpg";
