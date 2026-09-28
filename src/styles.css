@@ -410,9 +410,9 @@ body:before {
 
   font-size: clamp(66px, 9.8vw, 128px);
 
-  line-height: 0.83;
+  line-height: 1.18;
 
-  letter-spacing: -0.055em;
+  letter-spacing: -0.02em;
 
   margin: 24px 0 30px;
 
@@ -754,9 +754,9 @@ body:before {
 
   font-size: clamp(42px, 6.4vw, 78px);
 
-  line-height: 1;
+  line-height: 1.1;
 
-  letter-spacing: -0.045em;
+  letter-spacing: -0.02em;
 
   margin: 0;
 
@@ -883,7 +883,7 @@ blockquote {
 
   line-height: 1.2;
 
-  letter-spacing: -0.025em;
+  letter-spacing: -0.01em;
 
   border-left: 4px solid var(--gold);
 
@@ -1029,9 +1029,9 @@ blockquote {
 
   font-size: clamp(37px, 5vw, 62px);
 
-  line-height: 1.02;
+  line-height: 1.12;
 
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
 
   margin: 15px 0 0;
 }
@@ -1232,9 +1232,9 @@ blockquote {
 
   font-size: clamp(36px, 4.5vw, 54px);
 
-  line-height: 1.03;
+  line-height: 1.12;
 
-  letter-spacing: -0.035em;
+  letter-spacing: -0.02em;
 }
 
 .model-result-grid {
@@ -1991,9 +1991,9 @@ blockquote {
 
   font-size: clamp(50px, 9vw, 118px);
 
-  line-height: 0.88;
+  line-height: 0.98;
 
-  letter-spacing: -0.05em;
+  letter-spacing: -0.02em;
 
   margin: 25px 0 30px;
 
