@@ -2291,7 +2291,7 @@ footer {
   /* HERO */
 
   .hero {
-    padding: 90px 0 50px;
+    padding: 76px 0 18px;
 
     min-height: 100svh;
   }
@@ -2307,19 +2307,21 @@ footer {
   }
 
   .hero h1 {
-    font-size: clamp(53px, 18vw, 76px);
+    font-size: clamp(38px, 12vw, 54px);
 
-    margin: 19px 0 23px;
+    line-height: 1.12;
+
+    margin: 12px 0 14px;
   }
 
   .hero-sub {
-    font-size: 15px;
+    font-size: 14px;
 
-    line-height: 1.65;
+    line-height: 1.5;
   }
 
   .hero-actions {
-    margin-top: 24px;
+    margin-top: 16px;
   }
 
   .primary-btn {
@@ -2337,30 +2339,30 @@ footer {
   }
 
   .drink-stage {
-    height: 365px;
+    height: 235px;
 
-    margin-top: 4px;
+    margin-top: 0;
   }
 
   .drink-svg {
-    width: 260px;
+    width: 185px;
   }
 
   .drink-photo {
-    width: 215px;
-    height: 295px;
+    width: 165px;
+    height: 225px;
 
     right: 4%;
   }
 
   .orbit-a {
-    width: 280px;
-    height: 280px;
+    width: 220px;
+    height: 220px;
   }
 
   .orbit-b {
-    width: 340px;
-    height: 340px;
+    width: 270px;
+    height: 270px;
   }
 
   .float-chip {
